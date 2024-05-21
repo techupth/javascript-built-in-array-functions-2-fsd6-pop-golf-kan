@@ -373,5 +373,29 @@ const bills = [
   },
 ];
 
-// Start coding here
-const totalMembers;
+function giveMember(bills) {
+  return bills.member !== null;
+}
+const newBills = bills.filter(giveMember);
+console.log(newBills);
+
+function memberName(bills) {
+  return bills.member.name;
+}
+
+const billMembers = newBills.map(memberName);
+console.log(billMembers);
+
+const totalMembers = billMembers.reduce(function (accumulator, currentValue) {
+  if (!accumulator.includes(currentValue)) {
+    accumulator.push(currentValue);
+  }
+  return accumulator;
+}, []).length;
+
+console.log("Unique Members Count: ", totalMembers);
+
+//const totalMembers = new Set(billMembers);
+//connsole.log(totalMembers);
+
+//const totalMembers;
