@@ -374,4 +374,12 @@ const bills = [
 ];
 
 // Start coding here
-const totalMembers;
+const totalMembers = (bill) =>
+  bill
+    .filter((list) => list.member !== null)
+    .map((check) => check.member.name)
+    .reduce((acc, curr) => (acc.includes(curr) ? acc : [...acc, curr]), [])
+    .length;
+// .filter((item, i, ar) => ar.indexOf(item) === i))
+
+console.log(totalMembers(bills));
